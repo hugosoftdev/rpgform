@@ -1,4 +1,5 @@
 import React from 'react';
+import CRUDcontainer from '../containers/CRUD';
 
 
 export default class Index extends React.Component {
@@ -14,7 +15,7 @@ export default class Index extends React.Component {
   render() {
     return (
       <div id='react-root'>
-          Eae gente, bora fazer um projeto foda!
+          <CRUDcontainer/>
       </div>
     );
   }
