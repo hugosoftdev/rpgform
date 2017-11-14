@@ -4,6 +4,7 @@ import users from '../../api/user/users';
 import CRUD from '../components/CRUD';
 
 const composer = ({ params }, onData) => {
+  console.log('eae man');
   const subscription = Meteor.subscribe('Users.findAll');
   if (subscription.ready()) {
     const Users = users.find().fetch();

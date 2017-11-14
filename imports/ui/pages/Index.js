@@ -1,6 +1,6 @@
 import React from 'react';
 import CRUDcontainer from '../containers/CRUD';
-
+import sheetsContainer from '../containers/sheets';
 
 export default class Index extends React.Component {
 
@@ -11,10 +11,11 @@ export default class Index extends React.Component {
     };
   }
 
-
   render() {
+    console.log(`;gd`);
     return (
-      <div id='react-root'>
+      <div>
+          <sheetsContainer/>
           <CRUDcontainer/>
       </div>
     );

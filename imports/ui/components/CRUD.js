@@ -21,7 +21,7 @@ export default class CRUD extends React.Component {
   }
 
   // Callbacks
-  addUser(){
+  addUser() {
     console.log("adding");
     addUser.call({login: this.state.login, password: this.state.password, email: this.state.email }, (err,res) => {
       if (err) {
@@ -57,7 +57,7 @@ export default class CRUD extends React.Component {
           GO!!
         </Button>
         {this.props.Users.map((user) => {
-          console.log(user);
+          {/* console.log(user); */}
           return (
             <div>
               {user.login}

@@ -1,10 +1,10 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import { Meteor } from 'meteor/meteor';
-import Sheets, { sheetSchema } from './users';
+import Sheets, { sheetSchema } from './sheets';
 
 export const addSheet = new ValidatedMethod({
-  name: 'users.addSheet',
+  name: 'sheets.addSheet',
   validate: sheetSchema.validator({ clean: true }),
 
   run(sheet) {

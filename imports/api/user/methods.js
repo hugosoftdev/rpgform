@@ -20,7 +20,7 @@ export const addUser = new ValidatedMethod({
 
 
 export const removeUser = new ValidatedMethod({
-  name: 'users.addUser',
+  name: 'users.removeUser',
   validate: new SimpleSchema({
     id: { type: String },
   }).validator(),

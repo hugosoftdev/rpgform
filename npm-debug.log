@@ -9,8 +9,8 @@
 6 silly lifecycle application-name@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle application-name@1.0.0~start: application-name@1.0.0
 8 verbose lifecycle application-name@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle application-name@1.0.0~start: PATH: /home/hugo/.meteor/packages/meteor-tool/.1.4.2_3.15ip43f++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/bin/node-gyp-bin:/home/hugo/RPGForm/node_modules/.bin:/home/hugo/.meteor/packages/meteor-tool/.1.4.2_3.15ip43f++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/bin:/home/hugo/.meteor/packages/meteor-tool/.1.4.2_3.15ip43f++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/.bin:/home/hugo/.nvm/versions/node/v7.9.0/bin:/home/hugo/.local/share/umake/bin:/home/hugo/bin:/home/hugo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/hugo/Android/Sdk/tools:/home/hugo/Android/Sdk/platform-tools
-10 verbose lifecycle application-name@1.0.0~start: CWD: /home/hugo/RPGForm
+9 verbose lifecycle application-name@1.0.0~start: PATH: /home/hugo/.meteor/packages/meteor-tool/.1.4.2_3.15ip43f++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/bin/node-gyp-bin:/home/hugo/rpgform/node_modules/.bin:/home/hugo/.meteor/packages/meteor-tool/.1.4.2_3.15ip43f++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/bin:/home/hugo/.meteor/packages/meteor-tool/.1.4.2_3.15ip43f++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/.bin:/home/hugo/.nvm/versions/node/v7.9.0/bin:/home/hugo/.local/share/umake/bin:/home/hugo/bin:/home/hugo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/hugo/Android/Sdk/tools:/home/hugo/Android/Sdk/platform-tools
+10 verbose lifecycle application-name@1.0.0~start: CWD: /home/hugo/rpgform
 11 silly lifecycle application-name@1.0.0~start: Args: [ '-c',
 11 silly lifecycle   'MAIL_URL=\'smtp://gustavo.efeiche%40gmail.com:gllsxvhuhmzwxmcp@smtp.gmail.com:587\' meteor --settings settings-development.json' ]
 12 silly lifecycle application-name@1.0.0~start: Returned: code: 254  signal: null
@@ -26,7 +26,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:854:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:222:5)
 15 verbose pkgid application-name@1.0.0
-16 verbose cwd /home/hugo/RPGForm
+16 verbose cwd /home/hugo/rpgform
 17 error Linux 4.4.0-38-generic
 18 error argv "/home/hugo/.meteor/packages/meteor-tool/.1.4.2_3.15ip43f++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/bin/node" "/home/hugo/.meteor/packages/meteor-tool/.1.4.2_3.15ip43f++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/bin/npm" "start"
 19 error node v4.6.2

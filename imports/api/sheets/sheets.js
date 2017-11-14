@@ -2,7 +2,7 @@ import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 const Sheets = new Mongo.Collection('Sheets');
-export default Services;
+export default Sheets;
 
 // What we allow and deny on the client-side?
 Sheets.allow({
