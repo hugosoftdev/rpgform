@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { browserHistory } from 'react-router';
 import LoginContainer from '../containers/Login';
-import GroupPage from '../pages/Group';
+import GroupContainer from '../containers/Group';
 
 
 export default class Index extends React.Component {
@@ -22,6 +22,7 @@ export default class Index extends React.Component {
   }
 
   render() {
+    console.log(!this.props.params.groupId);
     return (
       <div>
         {
@@ -30,7 +31,9 @@ export default class Index extends React.Component {
               successCallback={this.handleLogin}
             />
           :
-          <GroupPage/>
+          <GroupContainer
+            groupId = {this.props.params}
+          />
         }
 
       </div>
