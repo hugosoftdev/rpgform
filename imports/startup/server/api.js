@@ -7,8 +7,8 @@
 
 // user methods
 
-import '../../api/user/methods';
-import '../../api/user/server/publications.js';
+import '../../api/groups/methods';
+import '../../api/groups/server/publications.js';
 
 
 import '../../api/sheets/methods';

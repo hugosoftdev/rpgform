@@ -1,6 +1,9 @@
 import React from 'react';
-import CRUDcontainer from '../containers/CRUD';
-import sheetsContainer from '../containers/sheets';
+import { PropTypes } from 'prop-types';
+import { browserHistory } from 'react-router';
+import LoginContainer from '../containers/Login';
+import GroupPage from '../pages/Group';
+
 
 export default class Index extends React.Component {
 
@@ -8,15 +11,28 @@ export default class Index extends React.Component {
     super(props);
 
     this.state = {
+      loggedInn: false,
     };
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  handleLogin(group) {
+    browserHistory.push(`/index/${group._id}`);
+    this.setState({ loggedInn: true });
   }
 
   render() {
-    console.log(`;gd`);
     return (
       <div>
-          <sheetsContainer/>
-          <CRUDcontainer/>
+        {
+          !this.props.params.groupId ?
+            <LoginContainer
+              successCallback={this.handleLogin}
+            />
+          :
+          <GroupPage/>
+        }
+
       </div>
     );
   }
@@ -24,5 +40,5 @@ export default class Index extends React.Component {
 
 
 Index.propTypes = {
-
+  params: PropTypes.object,
 };

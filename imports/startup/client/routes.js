@@ -29,6 +29,7 @@ Meteor.startup(Tracker.autorun(() => {
     <Route path="/" component={App}>
       <IndexRoute name="index" component={Index} onEnter={authenticate} fastRender={true}/>
       <Route name="index" path="/index" component={Index} fastRender={true} />
+      <Route name='index' path='/index/:groupId' component={Index} />
       {/* <Route name='services' path='/servicos' component={ServicesContainer} onEnter={authenticate} fastRender={true}/>
       <Route name='professionals' path='/profissionais' component={ProfessionalsContainer} onEnter={authenticate} fastRender={true}/>
 
