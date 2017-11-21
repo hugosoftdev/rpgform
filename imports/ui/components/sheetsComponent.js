@@ -4,6 +4,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Row, Col, Modal, Button, FormControl } from 'react-bootstrap';
 import { addSheet } from '../../api/sheets/methods';
+import SideBar from '../components/SideBar.js';
 /**
  * Uma view onde os profissionais e o dono do salão conseguem ver detalhes sobre todas as transações feitas referentes a cada professional ou ao salão como um todo.
  * Caso seja um profissionais acessando essa view (sem ter id de dono ou de gestor), ele terá acesso somente aos detalhes das transações relacionadas a ele.
@@ -20,7 +21,7 @@ export default class sheetsComponent extends React.Component {
   addSheet() {
     const sheet = {
       type: ' master',
-      group_id: '2',
+      group_id: this.props.groupId,
       player_name: 'hugo',
       char_name: 'hugo bruxo',
     };
@@ -37,6 +38,7 @@ export default class sheetsComponent extends React.Component {
   render() {
     return (
             <div>
+              <SideBar/>
                 <Button
                     onClick = {() => this.addSheet()}
                 />
@@ -50,4 +52,5 @@ export default class sheetsComponent extends React.Component {
 
 sheetsComponent.propTypes = {
   sheets: PropTypes.array.isRequired,
+  groupId: PropTypes.string,
 };
