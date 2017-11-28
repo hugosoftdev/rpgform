@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Application description.",
   "scripts": {
-    "start": "MAIL_URL='smtp://gustavo.efeiche%40gmail.com:gllsxvhuhmzwxmcp@smtp.gmail.com:587' meteor --settings settings-development.json",
+    "start": "meteor --settings settings-development.json",
     "doc": "esdoc -c ./esdoc.json",
     "test": "meteor test --driver-package practicalmeteor:mocha --settings settings-development.json --port 5000",
     "cli-test": "TEST_CLIENT=0 meteor test --once --driver-package dispatch:mocha --settings settings-development.json"
