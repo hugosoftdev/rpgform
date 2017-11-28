@@ -62,12 +62,19 @@ export default class Index extends React.Component {
             groupId = {this.props.params}
           />
         }
+
+        {
+          !this.props.params.groupId ?
         <center>
         <Button
           onClick = {() => this.setState({registering: true})}>
           Registre seu grupo
         </Button>
         </center>
+        :
+        ''
+        }
+
 
 
       </div>
