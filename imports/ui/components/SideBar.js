@@ -1,8 +1,9 @@
 import React from 'react';
 import SideNav, { Nav, NavIcon, NavText } from 'react-sidenav';
 import SvgIcon from 'react-icons-kit';
-import { filesEmpty } from 'react-icons-kit/icomoon/filesEmpty'; 
-import { cog } from 'react-icons-kit/icomoon/cog'; 
+import { filesEmpty } from 'react-icons-kit/icomoon/filesEmpty';
+import { cog } from 'react-icons-kit/icomoon/cog';
+import { browserHistory } from 'react-router';
 
 
 const Icon20 = props => <SvgIcon size={props.size || 20} icon={props.icon} />;
@@ -10,12 +11,12 @@ const Icon20 = props => <SvgIcon size={props.size || 20} icon={props.icon} />;
 const BaseContainer = props =>
     <div
         style={{
-            display: 'inline-block',
-            paddingTop: 16,
-            paddingBottom: 16,
-            fontFamily: 'Roboto',
-            width: 240,
-            ...props.style
+          display: 'inline-block',
+          paddingTop: 16,
+          paddingBottom: 16,
+          fontFamily: 'Roboto',
+          width: 240,
+          ...props.style,
         }}
     >
         {props.children}
@@ -30,8 +31,7 @@ const SideNavWithAlerts = () =>
         defaultSelected="settings"
         highlightColor="#FFF"
     >
-        <div />
-        <Nav id="sheets" >
+        <Nav id="sheets" onClick={this.handleClick}>
             <NavIcon><Icon20 icon={filesEmpty} /></NavIcon>
             <NavText> Sheets </NavText>
         </Nav>
@@ -43,24 +43,30 @@ const SideNavWithAlerts = () =>
 
 export default class SideBar extends React.Component {
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
+    this.state = {
 
-        };
-    }
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-    render() {
-        return (
+  handleClick() {
+    console.log('chamou o handle clik');
+    browserHistory.push(`/sheets/${this.props.groupId}`);
+  }
+
+  render() {
+    return (
             <div>
                 <div style={{ display: 'flex' }}>
                     <BaseContainer
                         style={{
-                            fontSize: 12,
-                            background: '#2d353c',
-                            color: '#a8acb1',
-                            paddingTop: 0
+                          fontSize: 12,
+                          background: '#2d353c',
+                          color: '#a8acb1',
+                          paddingTop: 0,
                         }}
                     >
                         <div style={{ display: 'flex', padding: 16, background: '#1a2229' }}>
@@ -81,8 +87,8 @@ export default class SideBar extends React.Component {
                     </BaseContainer>
                 </div>
             </div>
-        );
-    }
+    );
+  }
 }
 
 
