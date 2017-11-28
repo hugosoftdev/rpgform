@@ -2,9 +2,10 @@
 // /* eslint linebreak-style: ["error", "windows"] */
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { Row, Col, Modal, Button, FormControl } from 'react-bootstrap';
+import { Col, Row, Grid, Button } from 'react-bootstrap';
 import { addSheet } from '../../api/sheets/methods';
 import SideBar from '../components/SideBar.js';
+import SheetCard from '../components/sheetCard.js';
 /**
  * Uma view onde os profissionais e o dono do salão conseguem ver detalhes sobre todas as transações feitas referentes a cada professional ou ao salão como um todo.
  * Caso seja um profissionais acessando essa view (sem ter id de dono ou de gestor), ele terá acesso somente aos detalhes das transações relacionadas a ele.
@@ -36,16 +37,25 @@ export default class sheetsComponent extends React.Component {
 
   render() {
     return (
-            <div>
+            <div style={{ display: 'block !important' }}>
               <SideBar
                 groupId = {this.props.groupId}
               />
                 <Button
                     onClick = {() => this.addSheet()}
                 />
-                {this.props.sheets.map(sheet =>
-                    <p> {sheet.player_name} </p>
-                )}
+                {/* {this.props.sheets.map(sheet =>
+                    <p key={sheet._id}> {sheet.player_name} </p>
+                )} */}
+                <Grid style={{ paddingLeft: '11em' }}>
+                    <div className='cards-row'>
+                      {this.props.sheets.map(item =>
+                        <SheetCard
+                          sheet = {item}
+                        />
+                      )}
+                    </div>
+                </Grid>
             </div>
     );
   }

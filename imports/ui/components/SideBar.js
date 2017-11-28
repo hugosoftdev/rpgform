@@ -55,8 +55,6 @@ export default class SideBar extends React.Component {
   }
 
   handleClick(route) {
-    console.log('chamou o handle clik');
-    console.log(this.groupId);
     browserHistory.push(`/${route}/${this.groupId}`);
   }
 
