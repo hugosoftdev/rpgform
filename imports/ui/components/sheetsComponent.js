@@ -13,10 +13,10 @@ export default class sheetsComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        //variaveis
+        // variaveis
     };
     this.addSheet = this.addSheet.bind(this);
-}
+  }
 
   addSheet() {
     const sheet = {
@@ -28,8 +28,7 @@ export default class sheetsComponent extends React.Component {
     addSheet.call(sheet, (err, res) => {
       if (err) {
         console.log(err);
-      }
-      else {
+      } else {
         console.log(res);
       }
     });
@@ -38,7 +37,9 @@ export default class sheetsComponent extends React.Component {
   render() {
     return (
             <div>
-              <SideBar/>
+              <SideBar
+                groupId = {this.props.groupId}
+              />
                 <Button
                     onClick = {() => this.addSheet()}
                 />

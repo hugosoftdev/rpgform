@@ -4,6 +4,7 @@ import SvgIcon from 'react-icons-kit';
 import { filesEmpty } from 'react-icons-kit/icomoon/filesEmpty';
 import { cog } from 'react-icons-kit/icomoon/cog';
 import { browserHistory } from 'react-router';
+import $ from 'jquery';
 
 
 const Icon20 = props => <SvgIcon size={props.size || 20} icon={props.icon} />;
@@ -49,12 +50,14 @@ export default class SideBar extends React.Component {
     this.state = {
 
     };
+    this.groupId = props.groupId;
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  handleClick(route) {
     console.log('chamou o handle clik');
-    browserHistory.push(`/sheets/${this.props.groupId}`);
+    console.log(this.groupId);
+    browserHistory.push(`/${route}/${this.groupId}`);
   }
 
   render() {
@@ -83,7 +86,23 @@ export default class SideBar extends React.Component {
                                 <div style={{ fontSize: 11 }}> Ninja Developer </div>
                             </div> */}
                         </div>
-                        <SideNavWithAlerts />
+                        <SideNav
+                            hoverBgColor="#232a2f"
+                            hoverColor="red"
+                            highlightBgColor="#00acac"
+                            defaultSelected="settings"
+                            highlightColor="#FFF"
+                            onClick={this.handleClick}
+                        >
+                            <Nav id="sheets" onClick={this.handleClick}>
+                                <NavIcon><Icon20 icon={filesEmpty} /></NavIcon>
+                                <NavText> <div onClick={() => this.handleClick('sheets')}>Sheets</div> </NavText>
+                            </Nav>
+                            <Nav id="settings">
+                                <NavIcon><Icon20 icon={cog} /></NavIcon>
+                                <NavText> <div onClick={() => this.handleClick('settings')}>Groups Settings</div></NavText>
+                            </Nav>
+                        </SideNav>
                     </BaseContainer>
                 </div>
             </div>
@@ -93,5 +112,5 @@ export default class SideBar extends React.Component {
 
 
 SideBar.propTypes = {
-
+  groupId: React.PropTypes.string,
 };
