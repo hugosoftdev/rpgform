@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { browserHistory } from 'react-router';
 import LoginContainer from '../containers/Login';
 import GroupContainer from '../containers/Group';
+import SheetForm from '../components/CharSheetForm';
 
 
 export default class Index extends React.Component {
@@ -35,7 +36,9 @@ export default class Index extends React.Component {
             groupId = {this.props.params.groupId}
           />
         }
-
+        <SheetForm
+          groupId = {'TESTE ID'}
+        />
       </div>
     );
   }

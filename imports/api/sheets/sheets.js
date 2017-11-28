@@ -208,9 +208,6 @@ export const sheetSchema = new SimpleSchema({
       'sheet.ability_checks.charisma': {
         type: Boolean,
       },
-
-    
-    
 });
 
 export const removeSchema = new SimpleSchema({
