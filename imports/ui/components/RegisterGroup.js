@@ -10,9 +10,24 @@ export default class RegisterGroup extends React.Component {
         this.state = {
 
         };
+        this.handleNameChange = this.handleNameChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.handleCreateGroup = this.handleCreateGroup.bind(this);
 
     }
 
+    handleNameChange(e) {
+        this.setState({name: e.target.value})
+    }
+
+    handlePasswordChange(e) {
+        this.setState({password: e.target.value});
+    }
+
+    handleCreateGroup() {
+        console.log(this.state.name);
+        console.log(this.state.password);
+    }
 
     render() {
         console.log('chamou aqui');
@@ -26,10 +41,31 @@ export default class RegisterGroup extends React.Component {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <FormControl/>
-                    <Button>
-                        cadastrar
-                    </Button>
+                <div style={{ padding: '3%' }}>
+                    <div>
+                        <span> NOME DO GRUPO </span>
+                            <FormControl
+                            value={this.state.name}
+                            onChange={this.handleNameChange}
+                            />
+                    </div>
+                </div> 
+                <div style={{ padding: '3%' }}>
+                    <div>
+                        <span> SENHA DO GRUPO </span>
+                            <FormControl
+                            value = {this.state.password}
+                            onChange = {this.handlePasswordChange}
+                                />
+                    </div>
+                </div> 
+                <div style={{ textAlign: 'center' }}>
+                    <Button
+                        className='default-button'
+                        onClick={this.handleCreateGroup} >
+                    Cadastrar
+                  </Button>
+                </div>
                 </Modal.Body>
                 </Modal>
             </div>
