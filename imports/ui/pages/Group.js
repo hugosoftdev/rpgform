@@ -4,26 +4,26 @@ import SideBar from '../components/SideBar.js';
 
 export default class Group extends React.Component {
 
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
+        this.state = {
 
-    };
-  }
+        };
+
+    }
 
 
-  render() {
-    console.log(this.props.group);
-    return (
+    render() {
+        return (
             <div>
                 <SideBar/>
             </div>
-    );
-  }
+        );
+    }
 }
 
 
 Group.propTypes = {
-  group: React.PropTypes.object,
+
 };
