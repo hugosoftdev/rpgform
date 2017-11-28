@@ -14,10 +14,11 @@ export default class Group extends React.Component {
 
 
   render() {
-    console.log(this.props.group);
     return (
             <div>
-                <SideBar/>
+                <SideBar
+                  groupId = {this.props.groupId}
+                />
             </div>
     );
   }
@@ -25,5 +26,5 @@ export default class Group extends React.Component {
 
 
 Group.propTypes = {
-  group: React.PropTypes.object,
+  groupId: React.PropTypes.string,
 };

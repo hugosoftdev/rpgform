@@ -22,7 +22,7 @@ export default class Index extends React.Component {
   }
 
   render() {
-    console.log(!this.props.params.groupId);
+    console.log(this.props.params.groupId);
     return (
       <div>
         {
@@ -32,7 +32,7 @@ export default class Index extends React.Component {
             />
           :
           <GroupContainer
-            groupId = {this.props.params}
+            groupId = {this.props.params.groupId}
           />
         }
 
