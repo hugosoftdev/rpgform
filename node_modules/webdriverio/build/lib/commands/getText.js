@@ -77,7 +77,7 @@ var getText = function getText(selector) {
            // "Lorem ipsum dolor sit amet,consetetur sadipscing elitr"
    
            var spanText = browser.getText('span');
-           console.log(spanText);
+           console.log(text);
            // outputs "" (empty string) since element is not interactable
        });
    

@@ -16,11 +16,8 @@ import { ProtocolError } from '../utils/ErrorHandler'
 let logTypes
 
 function getLogTypes () {
-    if (logTypes) {
-        return Promise.resolve(logTypes)
-    }
-
-    return this.logTypes().then((types) => {
+    return logTypes ? Promise.resolve(logTypes) : this.logTypes()
+    .then((types) => {
         logTypes = types
         return logTypes
     })
