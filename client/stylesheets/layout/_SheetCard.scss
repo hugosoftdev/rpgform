@@ -8,6 +8,7 @@
   flex-direction: column;
   margin: 20px;
   cursor: pointer;
+  border-color: 2px solid white;
 }
 
 .card-container:hover {
@@ -50,11 +51,23 @@
   height: 2em;
   font-size: 1.2em;
   color: grey;
-  padding: 10px;
+  padding-left: 10px;
+  padding-bottom: 13px;
 }
 
 .cards-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding-top: 3em;
+}
+
+.card-page-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2.2em;
+  font-family: 1em;
+  text-align: center;
+  color: #fff;
 }

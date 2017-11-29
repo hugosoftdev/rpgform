@@ -14,7 +14,9 @@ export default class sheetsComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        // variaveis
+      selectedCard: {
+        char_name: null,
+      },
     };
     this.addSheet = this.addSheet.bind(this);
   }
@@ -36,27 +38,45 @@ export default class sheetsComponent extends React.Component {
   }
 
   render() {
+    const pageTitle = this.state.selectedCard.char_name || 'PERSONAGENS DO JOGO';
     return (
-            <div style={{ display: 'block !important' }}>
+            <Grid fluid>
               <SideBar
                 groupId = {this.props.groupId}
               />
-                <Button
+                {/* <Button
                     onClick = {() => this.addSheet()}
-                />
-                {/* {this.props.sheets.map(sheet =>
-                    <p key={sheet._id}> {sheet.player_name} </p>
-                )} */}
-                <Grid style={{ paddingLeft: '11em' }}>
-                    <div className='cards-row'>
-                      {this.props.sheets.map(item =>
-                        <SheetCard
-                          sheet = {item}
-                        />
-                      )}
-                    </div>
-                </Grid>
-            </div>
+                /> */}
+                {
+                  this.state.selectedCard.char_name ?
+                    <Button
+                      bsStyle='success'
+                      style={{ position: 'absolute', top: '55', right: '50' }}
+                      onClick={() => this.setState({ selectedCard: { char_name: null } })}
+                      >
+                      VER TODOS
+                    </Button>
+                    :
+                    ''
+                }
+                <div className='card-page-title'>
+                  <h1> {pageTitle.toUpperCase()} </h1>
+                </div>
+                {
+                  !this.state.selectedCard.char_name ?
+                  <div className='cards-row'>
+                    {this.props.sheets.map(item =>
+                      <SheetCard
+                        sheet = {item}
+                        onSelect = {card => this.setState({ selectedCard: card })}
+                      />
+                    )}
+                  </div>
+                  :
+                  ''
+                }
+
+            </Grid>
     );
   }
 }

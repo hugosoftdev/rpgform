@@ -16,7 +16,7 @@ export default class SheetCard extends React.Component {
   render() {
     const sheet = this.props.sheet;
     return (
-            <div className='card-container'>
+            <div onClick={() => this.props.onSelect(this.props.sheet)} className='card-container'>
               <div className='card-image-container'>
                 <img className='card-image' src='/ilidan.jpeg' alt=''/>
               </div>
@@ -24,7 +24,7 @@ export default class SheetCard extends React.Component {
                 <p className='card-body-text'>{sheet.char_name}</p>
               </div>
               <div className='card-footer'>
-                {sheet.player_name}
+                Created by: {sheet.player_name}
               </div>
             </div>
     );
@@ -33,4 +33,5 @@ export default class SheetCard extends React.Component {
 
 SheetCard.propTypes = {
   sheet: PropTypes.object.isRequired,
+  onSelect: PropTypes.func.isRequired,
 };
