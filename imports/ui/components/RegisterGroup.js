@@ -1,6 +1,7 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
 import {Modal, FormControl, Button} from 'react-bootstrap';
+import { addGroup } from '../../api/groups/methods';
 
 export default class RegisterGroup extends React.Component {
 
@@ -12,7 +13,7 @@ export default class RegisterGroup extends React.Component {
         };
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
-        this.handleCreateGroup = this.handleCreateGroup.bind(this);
+        this.addGroup = this.addGroup.bind(this);
 
     }
 
@@ -24,10 +25,26 @@ export default class RegisterGroup extends React.Component {
         this.setState({password: e.target.value});
     }
 
-    handleCreateGroup() {
+    addGroup() { 
+        const group = {
+            type: 'master',
+            name: this.state.name,
+            password: this.state.password,
+        }
         console.log(this.state.name);
         console.log(this.state.password);
+        addGroup.call(group, (err, res) => {
+        if (err) {
+            console.log(err);
+            }
+        else {
+            console.log(res);
+      }
+    })
     }
+
+
+
 
     render() {
         console.log('chamou aqui');
@@ -62,7 +79,7 @@ export default class RegisterGroup extends React.Component {
                 <div style={{ textAlign: 'center' }}>
                     <Button
                         className='default-button'
-                        onClick={this.handleCreateGroup} >
+                        onClick={this.addGroup} >
                     Cadastrar
                   </Button>
                 </div>
