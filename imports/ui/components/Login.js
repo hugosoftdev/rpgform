@@ -1,4 +1,4 @@
-// /* eslint-disable max-len */
+  // /* eslint-disable max-len */
 // /* eslint linebreak-style: ["error", "windows"] */
 import React from 'react';
 import { PropTypes } from 'prop-types';
@@ -19,6 +19,7 @@ export default class Login extends React.Component {
     };
     this.handleChoice = this.handleChoice.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   // Callbacks
@@ -37,7 +38,7 @@ export default class Login extends React.Component {
   }
 
   closeModal() {
-    this.setState({ passwordModal: null, password: null });
+    this.setState({ passwordModal: false, password: null });
   }
 
   // Funtions

@@ -3,6 +3,7 @@ import SideNav, { Nav, NavIcon, NavText } from 'react-sidenav';
 import SvgIcon from 'react-icons-kit';
 import { filesEmpty } from 'react-icons-kit/icomoon/filesEmpty';
 import { cog } from 'react-icons-kit/icomoon/cog';
+import { exit } from 'react-icons-kit/icomoon/exit';
 import { browserHistory } from 'react-router';
 
 const Icon20 = props => <SvgIcon size={props.size || 20} icon={props.icon} />;
@@ -34,7 +35,10 @@ export default class SideBar extends React.Component {
   }
 
   handleClick(route) {
-    browserHistory.push(`/${route}/${this.groupId}`);
+    if(route !== 'logout') {
+      return browserHistory.push(`/${route}/${this.props.groupId}`);
+    }
+    return browserHistory.push('/index');
   }
 
   render() {
@@ -78,6 +82,10 @@ export default class SideBar extends React.Component {
                             <Nav id="settings">
                                 <NavIcon><Icon20 icon={cog} /></NavIcon>
                                 <NavText> <div onClick={() => this.handleClick('settings')}>Groups Settings</div></NavText>
+                            </Nav>
+                            <Nav id="logout">
+                                <NavIcon><Icon20 icon={exit} /></NavIcon>
+                                <NavText> <div onClick={() => this.handleClick('logout')}>Logout</div></NavText>
                             </Nav>
                         </SideNav>
                     </BaseContainer>

@@ -17,7 +17,10 @@ export default class Group extends React.Component {
     render() {
         return (
             <div>
-                <SideBar/>
+            {console.log(this.props)}
+                <SideBar
+                    groupId = {this.props.group._id}
+                />
             </div>
         );
     }

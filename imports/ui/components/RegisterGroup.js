@@ -39,6 +39,7 @@ export default class RegisterGroup extends React.Component {
             }
         else {
             console.log(res);
+            this.props.closeModal();
       }
     })
     }
@@ -54,13 +55,13 @@ export default class RegisterGroup extends React.Component {
                 <Modal show={this.props.isOpen} onHide={this.props.closeModal}>
                 <Modal.Header>
                     <Modal.Title>
-                        Cadastro de grupo
+                        CREATE YOUR GROUP
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <div style={{ padding: '3%' }}>
                     <div>
-                        <span> NOME DO GRUPO </span>
+                        <span> GROUP NAME </span>
                             <FormControl
                             value={this.state.name}
                             onChange={this.handleNameChange}
@@ -69,7 +70,7 @@ export default class RegisterGroup extends React.Component {
                 </div> 
                 <div style={{ padding: '3%' }}>
                     <div>
-                        <span> SENHA DO GRUPO </span>
+                        <span> GROUP SECRET PASS </span>
                             <FormControl
                             value = {this.state.password}
                             onChange = {this.handlePasswordChange}
@@ -80,7 +81,7 @@ export default class RegisterGroup extends React.Component {
                     <Button
                         className='default-button'
                         onClick={this.addGroup} >
-                    Cadastrar
+                    REGISTER
                   </Button>
                 </div>
                 </Modal.Body>
