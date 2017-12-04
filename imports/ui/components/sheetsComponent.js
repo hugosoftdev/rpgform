@@ -1,5 +1,3 @@
-// /* eslint-disable max-len */
-// /* eslint linebreak-style: ["error", "windows"] */
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Col, Row, Grid, Button } from 'react-bootstrap';
@@ -85,3 +83,4 @@ sheetsComponent.propTypes = {
   sheets: PropTypes.array.isRequired,
   groupId: PropTypes.string,
 };
+

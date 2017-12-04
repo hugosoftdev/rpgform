@@ -3,6 +3,9 @@ import { PropTypes } from 'prop-types';
 import { browserHistory } from 'react-router';
 import LoginContainer from '../containers/Login';
 import GroupContainer from '../containers/Group';
+import { Row, Col, Modal, Button , FormControl} from 'react-bootstrap';
+// import { addUser } from '../../api/user/methods';
+import RegisterGroup from '../components/RegisterGroup';
 
 
 export default class Index extends React.Component {
@@ -12,8 +15,14 @@ export default class Index extends React.Component {
 
     this.state = {
       loggedInn: false,
+      iAmBealtyfull: false,
+      login: '',
+      password: '',
+      email: '',
+      registering: false,
     };
     this.handleLogin = this.handleLogin.bind(this);
+    this.addUser = this.addUser.bind(this);
   }
 
   handleLogin(group) {
@@ -21,25 +30,62 @@ export default class Index extends React.Component {
     this.setState({ loggedInn: true });
   }
 
+  addUser() {
+    console.log("adding");
+    addUser.call({login: this.state.login, password: this.state.password}, (err,res) => {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        console.log(res);
+      }
+    });
+  }
+
   render() {
-    console.log(this.props.params.groupId);
+    console.log(!this.props.params.groupId);
     return (
       <div>
         {
-          !this.props.params.groupId ?
+          !this.props.params.groupId && !this.state.registering ?
             <LoginContainer
               successCallback={this.handleLogin}
             />
           :
+          this.state.registering && !this.state.loggedInn ?
+          <RegisterGroup
+            closeModal = {() => this.setState({registering: false})}
+            isOpen = {this.state.registering}
+          />
+          :
           <GroupContainer
-            groupId = {this.props.params.groupId}
+            groupId = {this.props.params}
           />
         }
 
+        {
+          !this.props.params.groupId ?
+        <center>
+        <Button
+          onClick = {() => this.setState({registering: true})}>
+          Registre seu grupo
+        </Button>
+        </center>
+        :
+        ''
+        }
+
+
+
       </div>
+
     );
+
+
   }
+
 }
+
 
 
 Index.propTypes = {

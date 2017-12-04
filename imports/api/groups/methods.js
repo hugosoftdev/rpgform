@@ -1,16 +1,14 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
+import { Meteor } from 'meteor/meteor'
 import Groups, { groupSchema } from './groups';
 
 export const addGroup = new ValidatedMethod({
   name: 'Groups.addGroup',
   validate: groupSchema.validator({ clean: true }),
 
-  run({ name, password }) {
-    return (Groups.insert({
-      name,
-      password,
-    }));
+  run(group) {
+    return (Groups.insert(group));
   },
 });
 
