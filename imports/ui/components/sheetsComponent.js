@@ -36,23 +36,23 @@ export default class sheetsComponent extends React.Component {
   }
 
   render() {
-    const pageTitle = this.state.selectedCard.char_name || 'PERSONAGENS DO JOGO';
+    const pageTitle = this.state.selectedCard.char_name || 'GAME CHARACTERS';
     return (
             <Grid fluid>
               <SideBar
                 groupId = {this.props.groupId}
               />
-                {/* <Button
+                 <Button
+                    style={{ position:'absolute', right: '0' }}
                     onClick = {() => this.addSheet()}
-                /> */}
-                {
+                />                 {
                   this.state.selectedCard.char_name ?
                     <Button
                       bsStyle='success'
                       style={{ position: 'absolute', top: '55', right: '50' }}
                       onClick={() => this.setState({ selectedCard: { char_name: null } })}
                       >
-                      VER TODOS
+                      SEE ALL
                     </Button>
                     :
                     ''

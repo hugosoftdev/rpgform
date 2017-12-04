@@ -8,7 +8,7 @@ const composer = ({ groupId }, onData) => {
   if (subscription.ready()) {
     let group = Groups.find().fetch();
     console.log(group);
-    group = group.filter(g => g._id === groupId);
+    group = group.filter(g => g._id === groupId)[0];
     onData(null, {
       group,
     });

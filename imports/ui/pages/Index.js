@@ -15,7 +15,6 @@ export default class Index extends React.Component {
 
     this.state = {
       loggedInn: false,
-      iAmBealtyfull: false,
       login: '',
       password: '',
       email: '',
@@ -59,7 +58,7 @@ export default class Index extends React.Component {
           />
           :
           <GroupContainer
-            groupId = {this.props.params}
+            groupId = {this.props.params.groupId}
           />
         }
 
@@ -67,8 +66,10 @@ export default class Index extends React.Component {
           !this.props.params.groupId ?
         <center>
         <Button
+        style ={{marginTop: '5em'}}
+        bsStyle = 'success'
           onClick = {() => this.setState({registering: true})}>
-          Registre seu grupo
+         <strong> REGISTER GROUP </strong>
         </Button>
         </center>
         :
