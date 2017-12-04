@@ -4,6 +4,7 @@
 @import "base/forms";
 @import "layout/SearchBar";
 @import "layout/Buttons";
+@import "layout/SheetCard";
 
 
 body {
@@ -28,4 +29,8 @@ body {
 .default-button:hover {
     background-color: #fff !important;
     color: #000 !important;
+}
+
+.container-fluid {
+  padding: 0px !important;
 }

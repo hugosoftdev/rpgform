@@ -5,7 +5,6 @@ import { filesEmpty } from 'react-icons-kit/icomoon/filesEmpty';
 import { cog } from 'react-icons-kit/icomoon/cog';
 import { browserHistory } from 'react-router';
 
-
 const Icon20 = props => <SvgIcon size={props.size || 20} icon={props.icon} />;
 
 const BaseContainer = props =>
@@ -22,25 +21,6 @@ const BaseContainer = props =>
         {props.children}
     </div>;
 
-
-const SideNavWithAlerts = () =>
-    <SideNav
-        hoverBgColor="#232a2f"
-        hoverColor="red"
-        highlightBgColor="#00acac"
-        defaultSelected="settings"
-        highlightColor="#FFF"
-    >
-        <Nav id="sheets" onClick={this.handleClick}>
-            <NavIcon><Icon20 icon={filesEmpty} /></NavIcon>
-            <NavText> Sheets </NavText>
-        </Nav>
-        <Nav id="settings">
-            <NavIcon><Icon20 icon={cog} /></NavIcon>
-            <NavText> Group Settings </NavText>
-        </Nav>
-    </SideNav>;
-
 export default class SideBar extends React.Component {
 
   constructor(props) {
@@ -49,17 +29,17 @@ export default class SideBar extends React.Component {
     this.state = {
 
     };
+    this.groupId = props.groupId;
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    console.log('chamou o handle clik');
-    browserHistory.push(`/sheets/${this.props.groupId}`);
+  handleClick(route) {
+    browserHistory.push(`/${route}/${this.groupId}`);
   }
 
   render() {
     return (
-            <div>
+            <div style={{ position: 'fixed', paddingRight: '5%' }}>
                 <div style={{ display: 'flex' }}>
                     <BaseContainer
                         style={{
@@ -83,7 +63,23 @@ export default class SideBar extends React.Component {
                                 <div style={{ fontSize: 11 }}> Ninja Developer </div>
                             </div> */}
                         </div>
-                        <SideNavWithAlerts />
+                        <SideNav
+                            hoverBgColor="#232a2f"
+                            hoverColor="red"
+                            highlightBgColor="#00acac"
+                            defaultSelected="sheets"
+                            highlightColor="#FFF"
+                            onClick={this.handleClick}
+                        >
+                            <Nav id="sheets" onClick={this.handleClick}>
+                                <NavIcon><Icon20 icon={filesEmpty} /></NavIcon>
+                                <NavText> <div onClick={() => this.handleClick('sheets')}>Sheets</div> </NavText>
+                            </Nav>
+                            <Nav id="settings">
+                                <NavIcon><Icon20 icon={cog} /></NavIcon>
+                                <NavText> <div onClick={() => this.handleClick('settings')}>Groups Settings</div></NavText>
+                            </Nav>
+                        </SideNav>
                     </BaseContainer>
                 </div>
             </div>
@@ -93,5 +89,5 @@ export default class SideBar extends React.Component {
 
 
 SideBar.propTypes = {
-
+  groupId: React.PropTypes.string,
 };

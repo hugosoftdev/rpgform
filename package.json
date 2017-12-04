@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Application description.",
   "scripts": {
-    "start": "MAIL_URL='smtp://gustavo.efeiche%40gmail.com:gllsxvhuhmzwxmcp@smtp.gmail.com:587' meteor --settings settings-development.json",
+    "start": "meteor --settings settings-development.json",
     "doc": "esdoc -c ./esdoc.json",
     "test": "meteor test --driver-package practicalmeteor:mocha --settings settings-development.json --port 5000",
     "cli-test": "TEST_CLIENT=0 meteor test --once --driver-package dispatch:mocha --settings settings-development.json"
@@ -46,6 +46,7 @@
     "react-sidenav": "^2.1.2",
     "react-text-mask": "^5.0.2",
     "react-tooltip": "^3.3.0",
+    "reactstrap": "^4.8.0",
     "recharts": "^1.0.0-alpha.2",
     "select2": "^4.0.3",
     "styled-components": "^2.2.3",
