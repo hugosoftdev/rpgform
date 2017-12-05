@@ -39,7 +39,7 @@ var _detectSeleniumBackend2 = _interopRequireDefault(_detectSeleniumBackend);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var HOOKS = ['before', 'beforeSession', 'beforeSuite', 'beforeHook', 'beforeTest', 'beforeCommand', 'afterCommand', 'afterTest', 'afterHook', 'afterSuite', 'afterSession', 'after', 'beforeFeature', 'beforeScenario', 'beforeStep', 'afterFeature', 'afterScenario', 'afterStep', 'onError', 'onReload'];
-var MERGE_OPTIONS = { clone: false };
+
 var DEFAULT_TIMEOUT = 10000;
 var NOOP = function NOOP() {};
 var DEFAULT_CONFIGS = {
@@ -49,7 +49,6 @@ var DEFAULT_CONFIGS = {
     exclude: [],
     logLevel: 'silent',
     coloredLogs: true,
-    deprecationWarnings: true,
     baseUrl: null,
     bail: 0,
     waitforInterval: 500,
@@ -130,9 +129,9 @@ var ConfigParser = function () {
 
             try {
                 /**
-                 * clone the original config
+                 * clone the orginal config
                  */
-                var fileConfig = (0, _deepmerge2.default)(require(filePath).config, {}, MERGE_OPTIONS);
+                var fileConfig = (0, _deepmerge2.default)(require(filePath).config, {});
 
                 if (typeof fileConfig !== 'object') {
                     throw new Error('configuration file exports no config object');
@@ -141,8 +140,7 @@ var ConfigParser = function () {
                 /**
                  * merge capabilities
                  */
-                var defaultTo = Array.isArray(this._capabilities) ? [] : {};
-                this._capabilities = (0, _deepmerge2.default)(this._capabilities, fileConfig.capabilities || defaultTo, MERGE_OPTIONS);
+                this._capabilities = (0, _deepmerge2.default)(this._capabilities, fileConfig.capabilities || {});
                 delete fileConfig.capabilities;
 
                 /**
@@ -174,14 +172,14 @@ var ConfigParser = function () {
                     }
                 }
 
-                this._config = (0, _deepmerge2.default)(this._config, fileConfig, MERGE_OPTIONS);
+                this._config = (0, _deepmerge2.default)(this._config, fileConfig);
 
                 /**
                  * detect Selenium backend
                  */
-                this._config = (0, _deepmerge2.default)((0, _detectSeleniumBackend2.default)(this._config), this._config, MERGE_OPTIONS);
+                this._config = (0, _deepmerge2.default)((0, _detectSeleniumBackend2.default)(this._config), this._config);
             } catch (e) {
-                console.error(`Failed loading configuration file: ${filePath}`);
+                console.error('Failed loading configuration file: ' + filePath);
                 throw e;
             }
         }
@@ -196,23 +194,10 @@ var ConfigParser = function () {
         value: function merge() {
             var object = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-            this._config = (0, _deepmerge2.default)(this._config, object, MERGE_OPTIONS);
+            this._config = (0, _deepmerge2.default)(this._config, object);
 
             /**
-             * overwrite config specs that got piped into the wdio command
-             */
-            if (object.specs && object.specs.length > 0) {
-                this._config.specs = object.specs;
-            }
-
-            /**
-             * merge capabilities
-             */
-            var defaultTo = Array.isArray(this._capabilities) ? [] : {};
-            this._capabilities = (0, _deepmerge2.default)(this._capabilities, this._config.capabilities || defaultTo, MERGE_OPTIONS);
-
-            /**
-             * run single spec file only, regardless of multiple-spec specification
+             * run single spec file only
              */
             if (typeof object.spec === 'string') {
                 var specs = [];
@@ -246,7 +231,7 @@ var ConfigParser = function () {
                 }
 
                 if (specs.length === 0) {
-                    throw new Error(`spec file ${object.spec} not found`);
+                    throw new Error('spec file ' + object.spec + ' not found');
                 }
 
                 this._config.specs = specs;
@@ -263,7 +248,7 @@ var ConfigParser = function () {
                 delete this._config.port;
             }
 
-            this._config = (0, _deepmerge2.default)((0, _detectSeleniumBackend2.default)(this._config), this._config, MERGE_OPTIONS);
+            this._config = (0, _deepmerge2.default)((0, _detectSeleniumBackend2.default)(this._config), this._config);
         }
 
         /**
@@ -377,7 +362,7 @@ var ConfigParser = function () {
                 }
 
                 if (suiteSpecs.length === 0) {
-                    throw new Error(`The suite(s) "${suites.join('", "')}" you specified don't exist ` + 'in your config file or doesn\'t contain any files!');
+                    throw new Error('The suite(s) "' + suites.join('", "') + '" you specified don\'t exist ' + 'in your config file or doesn\'t contain any files!');
                 }
 
                 specs = suiteSpecs;
@@ -461,7 +446,7 @@ var ConfigParser = function () {
                         console.warn('pattern', pattern, 'did not match any file');
                     }
 
-                    files = (0, _deepmerge2.default)(files, filenames, MERGE_OPTIONS);
+                    files = (0, _deepmerge2.default)(files, filenames);
                 }
             } catch (err) {
                 _didIteratorError6 = true;

@@ -78,12 +78,7 @@ exports.config = {
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
     capabilities: [{
-        browserName: 'chrome',
-        chromeOptions: {
-        // to run chrome headless the following flags are required
-        // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-        // args: ['--headless', '--disable-gpu'],       
-        }        
+        browserName: 'chrome'
     }, {
         // maxInstances can get overwritten per capability. So if you have an in house Selenium
         // grid with only 5 firefox instance available you can make sure that not more than
@@ -92,11 +87,7 @@ exports.config = {
         browserName: 'firefox',
         specs: [
             'test/ffOnly/*'
-        ],
-        "moz:firefoxOptions": {
-          // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
-          // args: ['-headless']
-        }
+        ]
     },{
         browserName: 'phantomjs',
         exclude: [
@@ -132,9 +123,6 @@ exports.config = {
     // Enables colors for log output.
     coloredLogs: true,
     //
-    // Warns when a deprecated command is used
-    deprecationWarnings: true,
-    //
     // If you only want to run your tests until a specific amount of tests have failed use
     // bail (default is 0 - don't bail, run all tests).
     bail: 0,
@@ -142,10 +130,8 @@ exports.config = {
     // Saves a screenshot to a given path if a command fails.
     screenshotPath: 'shots',
     //
-    // Set a base URL in order to shorten url command calls. If your `url` parameter starts 
-    // with `/`, the base url gets prepended, not including the path portion of your baseUrl. 
-    // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url 
-    // gets prepended directly.
+    // Set a base URL in order to shorten url command calls. If your url parameter starts
+    //  with "/", the base url gets prepended.
     baseUrl: 'http://localhost:8080',
     //
     // Default timeout for all waitForXXX commands.
