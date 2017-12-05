@@ -23,7 +23,7 @@ export default class CardDescription extends React.Component {
                 speed: 40,
                 intelligence: 10,
                 darkvision: false,
-                strength: 20,
+                strength: 12,
                 dexterity: 18,
                 constituition: 10,
                 wisdom: 16,
@@ -37,7 +37,7 @@ export default class CardDescription extends React.Component {
   renderHexagon() {
     const data = [
           { subject: 'Intelligence', A: this.state.mock.sheet.intelligence, B: 0, fullMark: 150 },
-          { subject: 'Strenght', A: this.state.mock.sheet.strength, B: 0, fullMark: 150 },
+          { subject: 'Strength', A: this.state.mock.sheet.strength, B: 0, fullMark: 150 },
           { subject: 'Dexterity', A: this.state.mock.sheet.dexterity, B: 0, fullMark: 150 },
           { subject: 'Constitution', A: this.state.mock.sheet.constituition, B: 0, fullMark: 150 },
           { subject: 'Wisdom', A: this.state.mock.sheet.wisdom, B: 0, fullMark: 150 },
@@ -141,7 +141,7 @@ export default class CardDescription extends React.Component {
                             <Row>
                                 <Col md={10}>
                                     <div className='card-general-item'>
-                                        <span> <strong> DESCRIPTION </strong> </span>
+                                        <span> <strong> BACKGROUND </strong> </span>
                                         <div className='separate' />
                                         <span> {this.state.mock.sheet.background} </span>
                                     </div>

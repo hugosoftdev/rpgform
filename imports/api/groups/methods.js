@@ -1,6 +1,5 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import { Meteor } from 'meteor/meteor'
 import Groups, { groupSchema } from './groups';
 
 export const addGroup = new ValidatedMethod({
@@ -23,6 +22,26 @@ export const removeGroup = new ValidatedMethod({
     return (Groups.remove({
       _id: id,
     }));
+  },
+});
+
+export const updatePassword = new ValidatedMethod({
+  name: 'Groups.updatePassword',
+  validate: new SimpleSchema({
+    _id: { type: String },
+    password: { type: String },
+  }).validator(),
+
+  run({ _id, password }) {
+    Groups.update({ _id }, {
+      $set: {
+        password,
+      },
+    }, (error) => {
+      if (error) {
+        console.log('deu erro vey');
+      }
+    });
   },
 });
 
