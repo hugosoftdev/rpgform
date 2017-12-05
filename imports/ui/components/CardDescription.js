@@ -21,6 +21,7 @@ export default class CardDescription extends React.Component {
                 xp: 1150,
                 race: "Human",
                 speed: 40,
+                intelligence: 10,
                 darkvision: false,
                 strength: 20,
                 dexterity: 18,
@@ -35,7 +36,7 @@ export default class CardDescription extends React.Component {
 
   renderHexagon() {
     const data = [
-          { subject: 'Speed', A: this.state.mock.sheet.speed, B: 0, fullMark: 150 },
+          { subject: 'Intelligence', A: this.state.mock.sheet.intelligence, B: 0, fullMark: 150 },
           { subject: 'Strenght', A: this.state.mock.sheet.strength, B: 0, fullMark: 150 },
           { subject: 'Dexterity', A: this.state.mock.sheet.dexterity, B: 0, fullMark: 150 },
           { subject: 'Constitution', A: this.state.mock.sheet.constituition, B: 0, fullMark: 150 },
