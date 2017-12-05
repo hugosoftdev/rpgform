@@ -1,0 +1,61 @@
+.char-info-header{
+    background-color: red;
+}
+
+.attribute-container{
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    h1{
+        font-size: "28px";
+    }
+}
+
+.attributes-table{
+    background-color: green;
+    width: 40%;
+}
+
+.char-form{
+    background-color: white;
+}
+
+.char-header-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.char-header-item{
+
+}
+
+.char-form-body{
+    display: flex;
+    flex-direction: row;
+}
+
+.char-form-seccond-column{
+    width: 60%;
+    height: 100%;
+}
+
+.char-form-img{
+    background-color: rgba(0,0,0,0.25);
+    width: 60%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 8em 0 8em  0;
+}
+
+.char-form-image-vertical-center{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.char-form-image-holder{
+
+}
