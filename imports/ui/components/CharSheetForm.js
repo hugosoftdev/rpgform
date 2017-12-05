@@ -17,6 +17,11 @@ export default class SheetForm extends React.Component {
     this.changeAttributeValue = this.changeAttributeValue.bind(this);
     this.charSetState = this.charSetState.bind(this);
     this.sheetSetState = this.sheetSetState.bind(this);
+    this.addChar = this.addChar.bind(this);
+  }
+
+  addChar() {
+    console.log(this.state.char);
   }
 
   // Callbacks
@@ -177,8 +182,8 @@ export default class SheetForm extends React.Component {
           </div>
         </div>
         <Button
-          onClick = {this.addUser}>
-          GO!!
+          onClick = {this.addChar}>
+          CREATE CHAR
         </Button>
       </Row>
     );

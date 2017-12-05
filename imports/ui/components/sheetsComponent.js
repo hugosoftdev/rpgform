@@ -5,6 +5,8 @@ import { addSheet, removeSheet } from '../../api/sheets/methods';
 import SideBar from '../components/SideBar.js';
 import SheetCard from '../components/sheetCard.js';
 import CardDescription from '../components/CardDescription';
+import CharSheetForm from '../components/CharSheetForm';
+
 /**
  * Uma view onde os profissionais e o dono do salão conseguem ver detalhes sobre todas as transações feitas referentes a cada professional ou ao salão como um todo.
  * Caso seja um profissionais acessando essa view (sem ter id de dono ou de gestor), ele terá acesso somente aos detalhes das transações relacionadas a ele.
@@ -64,7 +66,13 @@ export default class sheetsComponent extends React.Component {
                       SEE ALL
                     </Button>
                     :
-                    ''
+                    <Button
+                      bsStyle='success'
+                      style={{ position: 'absolute', top: '55', right: '50' }}
+                      onClick={this.addSheet}
+                    >
+                       CREATE CHAR
+                    </Button>
                 }
                 <div className='card-page-title'>
                   <h1> {pageTitle.toUpperCase()} </h1>

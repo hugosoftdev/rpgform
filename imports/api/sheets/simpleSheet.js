@@ -55,8 +55,8 @@ export const sheetSchema = new SimpleSchema({
   'sheet.speed': {
     type: Number,
   },
-  'sheet.darkvision': {
-    type: Boolean,
+  'sheet.vision': {
+    type: Number,
   },
   'sheet.strength': {
     type: Number,
