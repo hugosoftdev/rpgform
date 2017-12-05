@@ -10,24 +10,18 @@
  *
  */
 
-import { isUnknownCommand } from '../helpers/utilities'
-
 let windowHandleMaximize = function (windowHandle = 'current') {
     const requestOptions = {
         path: `/session/:sessionId/window/${windowHandle}/maximize`,
         method: 'POST'
     }
 
-    return this.requestHandler.create(requestOptions).catch((err) => {
+    return this.requestHandler.create(requestOptions).catch(() => {
         /**
          * use W3C path if old path failed
          */
-        if (isUnknownCommand(err)) {
-            requestOptions.path = '/session/:sessionId/window/maximize'
-            return this.requestHandler.create(requestOptions)
-        }
-
-        throw err
+        requestOptions.path = '/session/:sessionId/window/maximize'
+        return this.requestHandler.create(requestOptions)
     })
 }
 
