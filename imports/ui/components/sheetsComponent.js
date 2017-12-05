@@ -43,10 +43,7 @@ export default class sheetsComponent extends React.Component {
               <SideBar
                 groupId = {this.props.groupId}
               />
-                 <Button
-                    style={{ position:'absolute', right: '0' }}
-                    onClick = {() => this.addSheet()}
-                />                 {
+                {
                   this.state.selectedCard.char_name ?
                     <Button
                       bsStyle='success'
