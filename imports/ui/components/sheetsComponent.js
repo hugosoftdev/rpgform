@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Col, Row, Grid, Button } from 'react-bootstrap';
-import { addSheet } from '../../api/sheets/methods';
+import { addSheet, removeSheet } from '../../api/sheets/methods';
 import SideBar from '../components/SideBar.js';
 import SheetCard from '../components/sheetCard.js';
 import CardDescription from '../components/CardDescription';
@@ -18,6 +18,7 @@ export default class sheetsComponent extends React.Component {
       },
     };
     this.addSheet = this.addSheet.bind(this);
+    this.removeSheet = this.removeSheet.bind(this);
   }
 
   addSheet() {
@@ -28,6 +29,16 @@ export default class sheetsComponent extends React.Component {
       char_name: 'hugo bruxo',
     };
     addSheet.call(sheet, (err, res) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(res);
+      }
+    });
+  }
+
+  removeSheet(id) {
+    removeSheet.call({id}, (err, res) => {
       if (err) {
         console.log(err);
       } else {
@@ -65,6 +76,7 @@ export default class sheetsComponent extends React.Component {
                       <SheetCard
                         sheet = {item}
                         onSelect = {card => this.setState({ selectedCard: card })}
+                        onDelete = {() => this.removeSheet(item._id)}
                       />
                     )}
                   </div>
