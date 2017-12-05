@@ -38,7 +38,7 @@ export default class sheetsComponent extends React.Component {
   }
 
   removeSheet(id) {
-    removeSheet.call({id}, (err, res) => {
+    removeSheet.call({ id }, (err, res) => {
       if (err) {
         console.log(err);
       } else {
