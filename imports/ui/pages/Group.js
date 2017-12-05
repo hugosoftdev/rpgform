@@ -13,15 +13,19 @@ export default class Group extends React.Component {
 
     }
 
+    redirect() {
+        return browserHistory.push(`/sheets/${this.props.group._id}`);
+    }
 
     render() {
         return (
             <div>
-            {console.log(this.props)}
                 <SideBar
                     groupId = {this.props.group._id}
                 />
+                {this.redirect()}
             </div>
+
         );
     }
 }

@@ -3,9 +3,10 @@ import { PropTypes } from 'prop-types';
 import { browserHistory } from 'react-router';
 import LoginContainer from '../containers/Login';
 import GroupContainer from '../containers/Group';
-import { Row, Col, Modal, Button , FormControl} from 'react-bootstrap';
+import { Row, Col, Modal, Button, FormControl } from 'react-bootstrap';
 // import { addUser } from '../../api/user/methods';
 import RegisterGroup from '../components/RegisterGroup';
+// import SheetForm from '../components/CharSheetForm';
 
 
 export default class Index extends React.Component {
@@ -30,12 +31,11 @@ export default class Index extends React.Component {
   }
 
   addUser() {
-    console.log("adding");
-    addUser.call({login: this.state.login, password: this.state.password}, (err,res) => {
+    console.log('adding');
+    addUser.call({ login: this.state.login, password: this.state.password }, (err, res) => {
       if (err) {
         console.log(err);
-      }
-      else {
+      } else {
         console.log(res);
       }
     });
@@ -53,7 +53,7 @@ export default class Index extends React.Component {
           :
           this.state.registering && !this.state.loggedInn ?
           <RegisterGroup
-            closeModal = {() => this.setState({registering: false})}
+            closeModal = {() => this.setState({ registering: false })}
             isOpen = {this.state.registering}
           />
           :
@@ -66,9 +66,9 @@ export default class Index extends React.Component {
           !this.props.params.groupId ?
         <center>
         <Button
-        style ={{marginTop: '5em'}}
+        style ={{ marginTop: '5em' }}
         bsStyle = 'success'
-          onClick = {() => this.setState({registering: true})}>
+          onClick = {() => this.setState({ registering: true })}>
          <strong> REGISTER GROUP </strong>
         </Button>
         </center>
@@ -77,16 +77,16 @@ export default class Index extends React.Component {
         }
 
 
-
+{/*
+        <SheetForm
+          groupId = {'TESTE ID'}
+        /> */}
       </div>
 
     );
-
-
   }
 
 }
-
 
 
 Index.propTypes = {

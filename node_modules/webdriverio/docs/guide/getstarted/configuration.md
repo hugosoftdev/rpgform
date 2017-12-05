@@ -92,7 +92,7 @@ Type: `String`<br>
 Default: */wd/hub*
 
 ### baseUrl
-Shorten `url` command calls by setting a base url. If your `url` parameter starts with `/`, the base url gets prepended, not including the path portion of your baseUrl. If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url gets prepended directly.
+Shorten `url` command calls by setting a base url. If your `url` parameter starts with `/`, the base url gets prepended.
 
 Type: `String`<br>
 Default: *null*
@@ -111,12 +111,6 @@ Default: *3*
 
 ### coloredLogs
 Enables colors for log output
-
-Type: `Boolean`<br>
-Default: *true*
-
-### deprecationWarnings
-Warns when a deprecated command is used
 
 Type: `Boolean`<br>
 Default: *true*
@@ -181,21 +175,6 @@ queryParams: {
 
 // Selenium request would look like:
 // http://127.0.0.1:4444/v1/session/a4ef025c69524902b77af5339017fd44/window/current/size?specialKey=d2ViZHJpdmVyaW8%3D
-```
-
-### headers
-A key-value store of headers to be added to every selenium request. Values must be strings.
-Type: `Object`<br>
-Default: None
-
-**Example**
-
-```js
-headers: {
-  Authorization: 'Basic dGVzdEtleTp0ZXN0VmFsdWU='
-}
-// This adds headers based on the key
-// This would result in a header named 'Authorization' with a value of 'Basic dGVzdEtleTp0ZXN0VmFsdWU='
 ```
 
 ## debug

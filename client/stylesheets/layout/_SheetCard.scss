@@ -48,11 +48,14 @@
 }
 
 .card-footer {
-  height: 2em;
+  height: 3em;
   font-size: 1.2em;
   color: grey;
   padding-left: 10px;
   padding-bottom: 13px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .cards-row {
