@@ -19,6 +19,7 @@ export default class Index extends React.Component {
       password: '',
       email: '',
       registering: false,
+      ng: angular.module('myApp', ['ngAnimate']),
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.addUser = this.addUser.bind(this);
@@ -41,11 +42,15 @@ export default class Index extends React.Component {
     });
   }
 
+
   render() {
     console.log(!this.props.params.groupId);
     return (
       <div>
-        {
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+         {
           !this.props.params.groupId && !this.state.registering ?
             <LoginContainer
               successCallback={this.handleLogin}
@@ -76,7 +81,15 @@ export default class Index extends React.Component {
         ''
         }
 
+        <body ng-app="ngAnimation">
 
+        <h1>Hide the DIV: <input type="checkbox" ng-model="myCheck"/></h1>
+
+        <div ng-hide="myCheck"><script>
+        var 
+        </script></div>
+
+        </body>
 
       </div>
 
