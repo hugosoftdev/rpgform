@@ -6,7 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
 import App from '../../ui/layouts/App.js';
 import sheetsContainer from '../../ui/containers/sheets';
-import GroupSettings from '../../ui/components/GroupSettings';
+import GroupSettingsContainer from '../../ui/containers/GroupSettings';
 import Index from '../../ui/pages/Index.js';
 
 
@@ -31,8 +31,8 @@ Meteor.startup(Tracker.autorun(() => {
       <Route name='index' path='/index/:groupId' component={Index} />
       <Route name="sheets" path="/sheets" component={sheetsContainer} fastRender={true} />
       <Route name='sheets' path='/sheets/:groupId' component={sheetsContainer} />
-      <Route name="settings" path="/settings" component={GroupSettings} fastRender={true} />
-      <Route name='settings' path='/settings/:groupId' component={GroupSettings} />
+      <Route name="settings" path="/settings" component={GroupSettingsContainer} fastRender={true} />
+      <Route name='settings' path='/settings/:groupId' component={GroupSettingsContainer} />
     </Route>
   </Router>, document.getElementById('react-root'));
 }));
