@@ -141,7 +141,7 @@ export default class CardDescription extends React.Component {
                             <Row>
                                 <Col md={10}>
                                     <div className='card-general-item'>
-                                        <span> <strong> DESCRIPTION </strong> </span>
+                                        <span> <strong> BACKGROUND </strong> </span>
                                         <div className='separate' />
                                         <span> {this.state.mock.sheet.background} </span>
                                     </div>
