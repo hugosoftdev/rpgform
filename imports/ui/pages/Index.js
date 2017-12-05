@@ -6,7 +6,7 @@ import GroupContainer from '../containers/Group';
 import { Row, Col, Modal, Button, FormControl } from 'react-bootstrap';
 // import { addUser } from '../../api/user/methods';
 import RegisterGroup from '../components/RegisterGroup';
-import SheetForm from '../components/CharSheetForm';
+// import SheetForm from '../components/CharSheetForm';
 
 
 export default class Index extends React.Component {

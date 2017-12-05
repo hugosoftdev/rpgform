@@ -4,6 +4,7 @@ import { Col, Row, Grid, Button } from 'react-bootstrap';
 import { addSheet } from '../../api/sheets/methods';
 import SideBar from '../components/SideBar.js';
 import SheetCard from '../components/sheetCard.js';
+import CardDescription from '../components/CardDescription';
 /**
  * Uma view onde os profissionais e o dono do salão conseguem ver detalhes sobre todas as transações feitas referentes a cada professional ou ao salão como um todo.
  * Caso seja um profissionais acessando essa view (sem ter id de dono ou de gestor), ele terá acesso somente aos detalhes das transações relacionadas a ele.
@@ -71,7 +72,9 @@ export default class sheetsComponent extends React.Component {
                     )}
                   </div>
                   :
-                  ''
+                  <CardDescription
+                    card = {this.state.selectedCard}
+                  />
                 }
 
             </Grid>
